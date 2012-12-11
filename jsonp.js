@@ -13,35 +13,29 @@ document.getElementsByTagName('head')[0].appendChild(script);
 
 function myFunction(data) {
 	for ( var i = 0; i < data.data.length; i++){
-	var templateString = document.getElementById('fb-page-template').innerHTML;
+	var templateString = document.getElementById('fb-template').innerHTML;
 
 	var template = Handlebars.compile(templateString);
 	//console.log(data.data[i]);
-	var html = template(data.data[i]);
+	var part1 = template(data.data[i]);
 
 	templateString = document.getElementById('extra-info-template').innerHTML;
 	template = Handlebars.compile(templateString);
 	//console.log(data.data[i]);
-	var innerhtml = template(data.data[i]);
+	var part2 = template(data.data[i]);
 
-	document.getElementById('fb-page').innerHTML += html;
-	document.getElementById('fb-page').innerHTML += "<button type=\"button\" class =\"moreinfo\"> MORE INFO</button>"
-	document.getElementById('fb-page').innerHTML += "<div class= \"extrainfo\" style=\"display: none;\">" + innerhtml + "</div>";
+	document.getElementById('fb-page').innerHTML += part1;
+	document.getElementById('fb-page').innerHTML += "<div class =\"moreinfo\"><a href=\"\" onclick=\"return false;\">more</a></div>"
+	document.getElementById('fb-page').innerHTML += "<div class= \"iwantmore\" style=\"display: none;\">" + part2 + "</div>";
 	}
 }
 
-$('#fb-page').on('click','.moreinfo', function(e) {
+$('#fb-page').on('click','.moreinfo', function() {
 
-console.log(e.currentTarget);
 var $this = $(this);
-var disp = $this.next('.extrainfo').css('display'); 
+var disp = $this.next('.iwantmore').css('display'); 
 if (disp === 'none'){ //not displayed 
-	console.log('clicked');
-	$this.next('.extrainfo').slideDown(300);
-	$this.html("LESS INFO");
+	$this.next('.iwantmore').show();
 	}
-	else {//if (disp === 'block'){//displayed
-		$this.next('.extrainfo').slideUp(300);
-		$this.html("MORE INFO");
-	}
+	
 });
