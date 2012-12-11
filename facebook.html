@@ -1,0 +1,42 @@
+<html>
+<head>
+	<title>Doreen's Favorite Disney Pixar Movies!</title>
+</head>
+<body>
+
+<h1>Doreen's Fav Disney Pixar Movies</h1>
+
+<script type="text/template" id="fb-page-template">
+	<hr />
+	<div class="facebook-page">
+	<img src="{{ pic_square }}">	<a href="{{page_url}}">{{name}}</a>
+		<p><strong>Number of people who agree:   </strong>{{fan_count}}</p>
+		<p>{{about}}</p>
+		<p><strong>Release Date:   </strong>{{release_date}}</p>
+		<p><strong>What its about (in case you forgot):   </strong>{{plot_outline}}</p>
+		<div class='moreinfo'>More Info</div>
+		</div>
+		<br />
+		
+</script>
+<script type="text/template" id="extra-info-template">
+<div class="more-info-page">
+			<p><strong>Starring:  </strong> {{starring}}</p>
+			<p><strong>Screenplay by:  </strong> {{screenplay_by}}</p>
+			<p><strong>Directed by:  </strong> {{directed_by}}</p>
+			<p><strong>Produced by:  </strong> {{produced_by}}</p>
+	</div>
+</script>
+
+<div id="fb-page">
+</div>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+
+
+<script src="handlebars-1.0.rc.1.js"></script>
+<script src="jsonp.js"></script>
+</body>
+</html>
